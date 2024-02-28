@@ -15,7 +15,7 @@ size = Vector2(46, 183)
 script = ExtResource("1_60x56")
 
 [node name="Player" parent="." instance=ExtResource("1_2alya")]
-position = Vector2(290, 544)
+position = Vector2(737, 543)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -38,6 +38,28 @@ texture = ExtResource("2_svv2q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 shape = SubResource("RectangleShape2D_wuh4f")
 
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2(268, 421)
+rotation = 1.5708
+
+[node name="WallImage" type="Sprite2D" parent="Wall3"]
+scale = Vector2(0.23, 0.915)
+texture = ExtResource("2_svv2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+shape = SubResource("RectangleShape2D_wuh4f")
+
+[node name="Wall4" type="StaticBody2D" parent="."]
+position = Vector2(451, 421)
+rotation = 1.5708
+
+[node name="WallImage" type="Sprite2D" parent="Wall4"]
+scale = Vector2(0.23, 0.915)
+texture = ExtResource("2_svv2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
+shape = SubResource("RectangleShape2D_wuh4f")
+
 [node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2(153, 490)
 
@@ -52,9 +74,9 @@ shape = SubResource("RectangleShape2D_wuh4f")
 autostart = true
 
 [node name="SpawnMarker" type="Marker2D" parent="."]
-position = Vector2(191, 556)
+position = Vector2(205, 326)
 
 [node name="SpawnLocation" parent="." instance=ExtResource("4_k65vc")]
-position = Vector2(213, 486)
+position = Vector2(216, 282)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
