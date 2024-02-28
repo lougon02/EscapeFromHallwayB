@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkv3g7dqnut7h"]
+
+[ext_resource type="Texture2D" uid="uid://bqibis7v8ve06" path="res://assets/objects/tower.png" id="1_73u24"]
+
+[node name="SpawnLocation" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.423797, 0.322174)
+texture = ExtResource("1_73u24")

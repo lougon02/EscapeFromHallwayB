@@ -7,6 +7,7 @@
 size = Vector2(24, 66)
 
 [node name="Player" type="CharacterBody2D"]
+input_pickable = true
 script = ExtResource("1_jj1ns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,3 +20,6 @@ region_rect = Rect2(0, 59.5111, 1024, 68.4889)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_yupc1")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
