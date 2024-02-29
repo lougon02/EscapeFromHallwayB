@@ -4,27 +4,36 @@ extends CanvasLayer
 @onready var flip_label : Label = $Flip/FlipContainer/Label
 @onready var weight_label : Label = $Weight/WeightContainer/Label
 
+var stylebox = StyleBoxFlat.new()
+
 func _ready():
 	update_jump_button()
 	update_flip_button()
 	update_weight_button()
+	stylebox.set_corner_radius_all(20)
 	
 func _on_jump_button_pressed():
 	Globals.is_jump = true
 	Globals.is_flip = false
 	Globals.is_weight = false
+
+	$Jump/JumpContainer/JumpButton.add_theme_stylebox_override("focus", stylebox)
 	change_cursor()
 	
 func _on_flip_button_pressed():
 	Globals.is_flip = true
 	Globals.is_jump = false
 	Globals.is_weight = false
+
+	$Flip/FlipContainer/FlipButton.add_theme_stylebox_override("focus", stylebox)
 	change_cursor()
 	
 func _on_weight_button_pressed():
 	Globals.is_weight = true
 	Globals.is_flip = false
 	Globals.is_jump = false
+
+	$Weight/WeightContainer/WeightButton.add_theme_stylebox_override("focus", stylebox)
 	change_cursor()
 	
 func update_jump_button():
