@@ -19,6 +19,7 @@ script = ExtResource("1_60x56")
 position = Vector2(737, 543)
 
 [node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="FloorImage" type="Sprite2D" parent="Floor"]
 position = Vector2(573, 613)
@@ -31,6 +32,7 @@ shape = SubResource("RectangleShape2D_wmoj3")
 
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2(941, 490)
+collision_layer = 2
 
 [node name="WallImage" type="Sprite2D" parent="Wall"]
 scale = Vector2(0.23, 0.915)
@@ -42,6 +44,7 @@ shape = SubResource("RectangleShape2D_wuh4f")
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(268, 421)
 rotation = 1.5708
+collision_layer = 2
 
 [node name="WallImage" type="Sprite2D" parent="Wall3"]
 scale = Vector2(0.23, 0.915)
@@ -53,6 +56,7 @@ shape = SubResource("RectangleShape2D_wuh4f")
 [node name="Wall4" type="StaticBody2D" parent="."]
 position = Vector2(451, 421)
 rotation = 1.5708
+collision_layer = 2
 
 [node name="WallImage" type="Sprite2D" parent="Wall4"]
 scale = Vector2(0.23, 0.915)
@@ -63,6 +67,7 @@ shape = SubResource("RectangleShape2D_wuh4f")
 
 [node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2(153, 490)
+collision_layer = 2
 
 [node name="WallImage" type="Sprite2D" parent="Wall2"]
 scale = Vector2(0.23, 0.915)
