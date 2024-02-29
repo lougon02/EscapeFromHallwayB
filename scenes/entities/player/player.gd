@@ -7,12 +7,16 @@ var mouse_in = false
 var gravity_modifier = 1.0
 var speed_modifier = 1.0
 
+# Signals
+signal has_jumped
+signal has_flip
+signal has_weight
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animate()
-
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -24,7 +28,15 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = not $Sprite2D.flip_h
 
 	if is_on_floor() and Input.is_action_just_pressed("Click") and mouse_in == true:
-		process_powerup("weight", delta)
+		
+		if Globals.is_jump:
+			process_powerup("jump", delta)
+		elif Globals.is_flip:
+			process_powerup("flip", delta)
+		elif Globals.is_weight:
+			process_powerup("weight", delta)
+		else:
+			pass
 
 	velocity.x = DIRECTION.x * SPEED * speed_modifier
 
@@ -35,24 +47,29 @@ func animate():
 	var tween = get_tree().create_tween().set_loops()
 	tween.tween_property($Sprite2D, "frame", 7, 1).from(0)
 
-
 func process_powerup(powerup, _delta):
 	if powerup == "jump":
 		velocity.y = JUMP_VELOCITY
+		Globals.jump_amount -= 1
+		has_jumped.emit()
+		
 	elif powerup == "flip":
 		DIRECTION.x *= -1
 		$Sprite2D.flip_h = not $Sprite2D.flip_h
+		Globals.flip_amount -= 1
+		has_flip.emit()
+		
 	elif powerup == "weight":
 		speed_modifier = 0.5
 		gravity_modifier = 5.0
+		Globals.weight_amount -= 1
+		has_weight.emit()
 	else:
 		# error powerup desconhecido
 		pass
 		
-
 func _on_mouse_entered():
 	mouse_in = true
-
 
 func _on_mouse_exited():
 	mouse_in = false

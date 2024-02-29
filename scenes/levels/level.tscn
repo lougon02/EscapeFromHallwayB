@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://biqbb36n2tg3o"]
+[gd_scene load_steps=8 format=3 uid="uid://biqbb36n2tg3o"]
 
 [ext_resource type="PackedScene" uid="uid://bar2x288423bo" path="res://scenes/entities/player/player.tscn" id="1_2alya"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_60x56"]
 [ext_resource type="Texture2D" uid="uid://8cuuy54cud0x" path="res://assets/White_square.png" id="2_svv2q"]
 [ext_resource type="PackedScene" uid="uid://bkv3g7dqnut7h" path="res://scenes/entities/spawn/spawn_location.tscn" id="4_k65vc"]
+[ext_resource type="PackedScene" uid="uid://btdipd0a85jlt" path="res://scenes/levels/ui.tscn" id="5_e8kyw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmoj3"]
 size = Vector2(1150, 69)
@@ -79,4 +80,9 @@ position = Vector2(205, 326)
 [node name="SpawnLocation" parent="." instance=ExtResource("4_k65vc")]
 position = Vector2(216, 282)
 
+[node name="UI" parent="." instance=ExtResource("5_e8kyw")]
+
+[connection signal="has_flip" from="Player" to="." method="_on_player_has_flip"]
+[connection signal="has_jumped" from="Player" to="." method="_on_player_has_jumped"]
+[connection signal="has_weight" from="Player" to="." method="_on_player_has_weight"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

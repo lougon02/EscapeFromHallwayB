@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://btdipd0a85jlt"]
+
+[ext_resource type="Script" path="res://scenes/levels/ui.gd" id="1_mynnl"]
+[ext_resource type="Texture2D" uid="uid://v4rfif8janlk" path="res://assets/powers/jump.png" id="2_qi645"]
+[ext_resource type="Texture2D" uid="uid://spv66o485723" path="res://assets/powers/Flip.png" id="3_44n5v"]
+[ext_resource type="Texture2D" uid="uid://cexxkogh2k4wl" path="res://assets/powers/weight.png" id="4_o162o"]
+
+[node name="Ui" type="CanvasLayer"]
+script = ExtResource("1_mynnl")
+
+[node name="Jump" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="JumpContainer" type="VBoxContainer" parent="Jump"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 67.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="Jump/JumpContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "6"
+horizontal_alignment = 1
+
+[node name="JumpButton" type="Button" parent="Jump/JumpContainer"]
+layout_mode = 2
+icon = ExtResource("2_qi645")
+
+[node name="Flip" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.45
+anchor_top = 0.95
+anchor_right = 0.45
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="FlipContainer" type="VBoxContainer" parent="Flip"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Flip/FlipContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "4"
+horizontal_alignment = 1
+
+[node name="FlipButton" type="Button" parent="Flip/FlipContainer"]
+layout_mode = 2
+icon = ExtResource("3_44n5v")
+
+[node name="Weight" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.55
+anchor_top = 0.95
+anchor_right = 0.55
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WeightContainer" type="VBoxContainer" parent="Weight"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Weight/WeightContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "3"
+horizontal_alignment = 1
+
+[node name="WeightButton" type="Button" parent="Weight/WeightContainer"]
+layout_mode = 2
+icon = ExtResource("4_o162o")
+
+[connection signal="pressed" from="Jump/JumpContainer/JumpButton" to="." method="_on_jump_button_pressed"]
+[connection signal="pressed" from="Flip/FlipContainer/FlipButton" to="." method="_on_flip_button_pressed"]
+[connection signal="pressed" from="Weight/WeightContainer/WeightButton" to="." method="_on_weight_button_pressed"]
