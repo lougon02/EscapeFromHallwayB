@@ -30,3 +30,7 @@ func _on_player_has_flip():
 func _on_player_has_weight():
 	print("Processing weight...")
 	$UI.update_weight_button()
+	
+func _on_exit_gate_body_exited(_body):
+	Globals.freshmen_escaped += 1
+	$UI.update_freshmen_escaped(Globals.freshmen_escaped)

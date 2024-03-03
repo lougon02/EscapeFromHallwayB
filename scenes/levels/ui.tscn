@@ -126,6 +126,22 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Lvl 1"
 
+[node name="PlayersEscaped" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.2
+anchor_top = 0.99
+anchor_right = 0.2
+anchor_bottom = 0.99
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="PlayersEscaped"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="CountDown/CountDownTimer" to="." method="_on_count_down_timeout"]
 [connection signal="pressed" from="Jump/JumpContainer/JumpButton" to="." method="_on_jump_button_pressed"]
 [connection signal="pressed" from="Flip/FlipContainer/FlipButton" to="." method="_on_flip_button_pressed"]

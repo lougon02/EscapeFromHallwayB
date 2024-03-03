@@ -15,6 +15,7 @@ func _ready():
 	update_jump_button()
 	update_flip_button()
 	update_weight_button()
+	update_freshmen_escaped(Globals.freshmen_escaped)
 	stylebox.set_corner_radius_all(20)
 	countdown_timer.start()
 	
@@ -69,6 +70,11 @@ func change_cursor():
 	
 func reset_cursor():
 	Input.set_custom_mouse_cursor(null)
+	
+### PLAYERS ###
+
+func update_freshmen_escaped(value):
+	$PlayersEscaped/Label.text = str(value) + "/" + str(Globals.num_freshmen)
 
 ### COUNTDOWN ###
 
