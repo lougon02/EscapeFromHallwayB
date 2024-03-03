@@ -4,6 +4,11 @@ extends CanvasLayer
 @onready var flip_label : Label = $Flip/FlipContainer/Label
 @onready var weight_label : Label = $Weight/WeightContainer/Label
 
+@onready var countdown_label : Label = $CountDown/CountDownLabel
+@onready var countdown_timer = $CountDown/CountDownTimer
+
+#### POWER-UPS #### 
+
 var stylebox = StyleBoxFlat.new()
 
 func _ready():
@@ -11,6 +16,7 @@ func _ready():
 	update_flip_button()
 	update_weight_button()
 	stylebox.set_corner_radius_all(20)
+	countdown_timer.start()
 	
 func _on_jump_button_pressed():
 	Globals.is_jump = true
@@ -63,3 +69,12 @@ func change_cursor():
 	
 func reset_cursor():
 	Input.set_custom_mouse_cursor(null)
+
+### COUNTDOWN ###
+
+func _process(_delta):
+	var time_left = countdown_timer.time_left
+	var minutes = floor(time_left/60)
+	var seconds = int(time_left) % 60
+	
+	$CountDown/CountDownLabel.text = str(minutes, " : ", str(seconds).pad_zeros(2))
