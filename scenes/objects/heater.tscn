@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://gwf0fqo8y7g2"]
+
+[ext_resource type="Texture2D" uid="uid://jf3shlmm6gna" path="res://assets/objects/heater.png" id="1_2tx7i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddqqt"]
+size = Vector2(156, 103)
+
+[node name="Heater" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ddqqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_2tx7i")

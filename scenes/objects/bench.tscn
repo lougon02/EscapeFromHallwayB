@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1tuqjtmru4nc"]
+
+[ext_resource type="Texture2D" uid="uid://b446g2p4o81kn" path="res://assets/objects/bench.png" id="1_un02d"]
+
+[node name="Bench" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-27, -7, 27, -7, 27, -6, 26, -6, 26, -5, 25, -5, 25, 7, 23, 7, 23, -3, 22, -3, 22, -4, -22, -4, -22, -3, -23, -3, -23, 7, -25, 7, -25, -5, -26, -5, -26, -6, -27, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_un02d")

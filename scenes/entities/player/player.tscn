@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_jj1ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yupc1"]
-size = Vector2(39, 67)
+size = Vector2(29, 67.5)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -19,6 +19,7 @@ region_enabled = true
 region_rect = Rect2(0, 54.7991, 1000, 70.2009)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.25)
 shape = SubResource("RectangleShape2D_yupc1")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

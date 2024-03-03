@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://biqbb36n2tg3o"]
+[gd_scene load_steps=10 format=3 uid="uid://biqbb36n2tg3o"]
 
 [ext_resource type="PackedScene" uid="uid://bar2x288423bo" path="res://scenes/entities/player/player.tscn" id="1_2alya"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_60x56"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8cuuy54cud0x" path="res://assets/White_square.png" id="2_svv2q"]
 [ext_resource type="PackedScene" uid="uid://bkv3g7dqnut7h" path="res://scenes/entities/spawn/spawn_location.tscn" id="4_k65vc"]
 [ext_resource type="PackedScene" uid="uid://btdipd0a85jlt" path="res://scenes/levels/ui.tscn" id="5_e8kyw"]
+[ext_resource type="PackedScene" uid="uid://gwf0fqo8y7g2" path="res://scenes/objects/heater.tscn" id="5_s0mmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmoj3"]
 size = Vector2(1150, 69)
@@ -36,17 +37,6 @@ texture = ExtResource("2_svv2q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(573, 612.5)
 shape = SubResource("RectangleShape2D_wmoj3")
-
-[node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2(941.04, 494)
-collision_layer = 2
-
-[node name="WallImage" type="Sprite2D" parent="Wall"]
-scale = Vector2(0.23, 0.915)
-texture = ExtResource("2_svv2q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-shape = SubResource("RectangleShape2D_wuh4f")
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 position = Vector2(268.04, 425)
@@ -82,6 +72,9 @@ texture = ExtResource("2_svv2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 shape = SubResource("RectangleShape2D_wuh4f")
+
+[node name="Heater" parent="." instance=ExtResource("5_s0mmm")]
+position = Vector2(968, 531)
 
 [node name="SpawnTimer" type="Timer" parent="."]
 autostart = true
