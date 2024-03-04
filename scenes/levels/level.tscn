@@ -69,13 +69,15 @@ shape = SubResource("RectangleShape2D_wuh4f")
 [node name="Heater" parent="." instance=ExtResource("5_s0mmm")]
 position = Vector2(93, 506)
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="Spawner" type="Node2D" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
 autostart = true
 
-[node name="SpawnMarker" type="Marker2D" parent="."]
+[node name="SpawnMarker" type="Marker2D" parent="Spawner"]
 position = Vector2(187.04, 352)
 
-[node name="SpawnLocation" parent="." instance=ExtResource("4_k65vc")]
+[node name="SpawnLocation" parent="Spawner" instance=ExtResource("4_k65vc")]
 position = Vector2(198.04, 308)
 
 [node name="UI" parent="." instance=ExtResource("5_e8kyw")]
@@ -91,8 +93,11 @@ position = Vector2(2.99999, -98)
 scale = Vector2(0.049375, 0.049375)
 texture = ExtResource("8_jrdrg")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
 [connection signal="has_flip" from="Player" to="." method="_on_player_has_flip"]
 [connection signal="has_jumped" from="Player" to="." method="_on_player_has_jumped"]
 [connection signal="has_weight" from="Player" to="." method="_on_player_has_weight"]
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="body_exited" from="ExitGate" to="." method="_on_exit_gate_body_exited"]
