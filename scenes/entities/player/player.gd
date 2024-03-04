@@ -27,16 +27,17 @@ func _physics_process(delta):
 		DIRECTION.x *= -1
 		$Sprite2D.flip_h = not $Sprite2D.flip_h
 
-	if is_on_floor() and Input.is_action_just_pressed("Click") and mouse_in == true:
-		
-		if Globals.is_jump:
-			process_powerup("jump", delta)
-		elif Globals.is_flip:
-			process_powerup("flip", delta)
-		elif Globals.is_weight:
-			process_powerup("weight", delta)
-		else:
-			pass
+	if is_on_floor():
+		if Input.is_action_just_pressed("Click") and mouse_in == true:
+			if Globals.is_jump:
+				process_powerup("jump", delta)
+			elif Globals.is_flip:
+				process_powerup("flip", delta)
+			elif Globals.is_weight:
+				process_powerup("weight", delta)
+			else:
+				pass
+
 
 	velocity.x = DIRECTION.x * SPEED * speed_modifier
 
