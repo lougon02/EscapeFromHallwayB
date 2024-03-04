@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b446g2p4o81kn" path="res://assets/objects/bench.png" id="1_un02d"]
 
 [node name="Bench" type="StaticBody2D"]
+scale = Vector2(6, 6)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]

@@ -46,7 +46,7 @@ func _on_weight_button_pressed():
 func update_jump_button():
 	jump_label.text = str(Globals.jump_amount)
 	if Globals.jump_amount <= 0:
-		$Jump/JumpContainer/Button.disabled = true
+		$Jump/JumpContainer/JumpButton.disabled = true
 		Globals.is_jump = false
 		reset_cursor()
 	

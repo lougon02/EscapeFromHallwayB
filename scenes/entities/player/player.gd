@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 100.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 var DIRECTION = Vector2.RIGHT
 var mouse_in = false
 var gravity_modifier = 1.0
