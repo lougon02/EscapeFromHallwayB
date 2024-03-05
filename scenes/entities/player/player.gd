@@ -30,11 +30,11 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("Click") and mouse_in == true:
 			if Globals.is_jump:
-				process_powerup("jump", delta)
+				process_powerup("jump")
 			elif Globals.is_flip:
-				process_powerup("flip", delta)
+				process_powerup("flip")
 			elif Globals.is_weight:
-				process_powerup("weight", delta)
+				process_powerup("weight")
 			else:
 				pass
 
@@ -48,7 +48,7 @@ func animate():
 	var tween = get_tree().create_tween().set_loops()
 	tween.tween_property($Sprite2D, "frame", 7, 1).from(0)
 
-func process_powerup(powerup, _delta):
+func process_powerup(powerup):
 	if powerup == "jump":
 		velocity.y = JUMP_VELOCITY
 		Globals.jump_amount -= 1
