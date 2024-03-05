@@ -11,6 +11,7 @@ func _process(_delta):
 		$Camera2D.position.x -= 8
 	if Input.is_action_pressed("Right"):
 		$Camera2D.position.x += 8
+	
 
 # Spawn of freshmen
 func _on_spawn_timer_timeout():
@@ -46,3 +47,12 @@ func _on_entered_first_floor(body: CharacterBody2D):
 	body.set_collision_mask_value(2,false)
 	body.set_collision_mask_value(3,true)
 	
+func _on_ui_powerup_area_placed(powerup: String):
+	print("Powerup placed: ", powerup)
+	var powerup_area = preload("res://scenes/powers/area_effect.tscn").instantiate()
+	powerup_area.powerup = powerup
+	# Set powerup are position in the cursor position
+	powerup_area.position = get_global_mouse_position()
+	$PowerAreas.add_child(powerup_area)
+
+

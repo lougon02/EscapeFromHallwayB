@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://2yfgnk4jprd7"]
+
+[ext_resource type="Script" path="res://AreaEffect.gd" id="1_xcppk"]
+[ext_resource type="Texture2D" uid="uid://bhjv8qvq1tjll" path="res://assets/powers/area_effect.png" id="2_pxr3t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slwjo"]
+radius = 2.23607
+
+[node name="AreaEffect" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_xcppk")
+
+[node name="PortalEffect" type="Sprite2D" parent="."]
+texture = ExtResource("2_pxr3t")
+hframes = 6
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_slwjo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

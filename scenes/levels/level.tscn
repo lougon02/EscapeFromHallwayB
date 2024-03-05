@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://biqbb36n2tg3o"]
+[gd_scene load_steps=14 format=3 uid="uid://biqbb36n2tg3o"]
 
 [ext_resource type="PackedScene" uid="uid://bar2x288423bo" path="res://scenes/entities/player/player.tscn" id="1_2alya"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_60x56"]
 [ext_resource type="Texture2D" uid="uid://cdrqmib6c2hvr" path="res://assets/level/background.png" id="2_bpwx3"]
 [ext_resource type="Texture2D" uid="uid://8cuuy54cud0x" path="res://assets/White_square.png" id="2_svv2q"]
 [ext_resource type="Texture2D" uid="uid://dc38juoiy0iyn" path="res://assets/level/handrail.png" id="3_ppaot"]
-[ext_resource type="PackedScene" uid="uid://2yfgnk4jprd7" path="res://scenes/powers/area_effect.tscn" id="3_yrq35"]
 [ext_resource type="PackedScene" uid="uid://btdipd0a85jlt" path="res://scenes/levels/ui.tscn" id="5_e8kyw"]
 [ext_resource type="PackedScene" uid="uid://gwf0fqo8y7g2" path="res://scenes/objects/heater.tscn" id="5_s0mmm"]
 [ext_resource type="PackedScene" uid="uid://b1tuqjtmru4nc" path="res://scenes/objects/bench.tscn" id="6_7avko"]
@@ -39,9 +38,7 @@ texture = ExtResource("2_bpwx3")
 position = Vector2(-379.25, 138)
 shape = SubResource("RectangleShape2D_2evgg")
 
-[node name="AreaEffect" parent="." instance=ExtResource("3_yrq35")]
-position = Vector2(373, 539)
-powerup = "Jump"
+[node name="PowerAreas" type="Node2D" parent="."]
 
 [node name="FirstFloor" type="Node2D" parent="."]
 
@@ -131,4 +128,5 @@ position = Vector2(576, 324)
 [connection signal="has_jumped" from="Players/Player" to="." method="_on_player_has_jumped"]
 [connection signal="has_weight" from="Players/Player" to="." method="_on_player_has_weight"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="powerup_area_placed" from="UI" to="." method="_on_ui_powerup_area_placed"]
 [connection signal="body_exited" from="ExitGate" to="." method="_on_exit_gate_body_exited"]

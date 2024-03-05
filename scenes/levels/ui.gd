@@ -7,6 +7,15 @@ extends CanvasLayer
 @onready var countdown_label : Label = $CountDown/CountDownLabel
 @onready var countdown_timer = $CountDown/CountDownTimer
 
+var target_path = preload("res://assets/objects/target.png")
+var area_cursor = preload("res://assets/cursors/area_cursor.png")
+
+var isSingleTarget = true
+var selectedPowerup = null
+
+# Signals
+signal powerup_area_placed(powerup)
+
 #### POWER-UPS #### 
 
 var stylebox = StyleBoxFlat.new()
@@ -20,6 +29,7 @@ func _ready():
 	countdown_timer.start()
 	
 func _on_jump_button_pressed():
+	selectedPowerup = "jump"
 	Globals.is_jump = true
 	Globals.is_flip = false
 	Globals.is_weight = false
@@ -28,6 +38,7 @@ func _on_jump_button_pressed():
 	change_cursor()
 	
 func _on_flip_button_pressed():
+	selectedPowerup = "flip"
 	Globals.is_flip = true
 	Globals.is_jump = false
 	Globals.is_weight = false
@@ -36,6 +47,7 @@ func _on_flip_button_pressed():
 	change_cursor()
 	
 func _on_weight_button_pressed():
+	selectedPowerup = "weight"
 	Globals.is_weight = true
 	Globals.is_flip = false
 	Globals.is_jump = false
@@ -48,28 +60,25 @@ func update_jump_button():
 	if Globals.jump_amount <= 0:
 		$Jump/JumpContainer/JumpButton.disabled = true
 		Globals.is_jump = false
-		reset_cursor()
 	
 func update_flip_button():
 	flip_label.text = str(Globals.flip_amount)
 	if Globals.flip_amount <= 0:
 		$Flip/FlipContainer/FlipButton.disabled = true
 		Globals.is_flip = false
-		reset_cursor()
 	
 func update_weight_button():
 	weight_label.text = str(Globals.weight_amount)
 	if Globals.weight_amount <= 0:
 		$Weight/WeightContainer/WeightButton.disabled = true
 		Globals.is_weight = false
-		reset_cursor()
 	
 func change_cursor():
-	var target_path = preload("res://assets/objects/target.png")
-	Input.set_custom_mouse_cursor(target_path)
-	
-func reset_cursor():
-	Input.set_custom_mouse_cursor(null)
+	if isSingleTarget:
+		Input.set_custom_mouse_cursor(target_path)
+	else:
+		Input.set_custom_mouse_cursor(area_cursor)
+
 	
 ### PLAYERS ###
 
@@ -84,3 +93,12 @@ func _process(_delta):
 	var seconds = int(time_left) % 60
 	
 	$CountDown/CountDownLabel.text = str(minutes, " : ", str(seconds).pad_zeros(2))
+
+	if Input.is_action_just_pressed("ScrollUp") or Input.is_action_just_pressed("ScrollDown"):
+		isSingleTarget = !isSingleTarget
+		change_cursor()
+	
+	if Input.is_action_just_pressed("Click"):
+		if not isSingleTarget:
+			powerup_area_placed.emit(selectedPowerup)
+			print("Emmited")
