@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var countdown_label : Label = $CountDown/CountDownLabel
 @onready var countdown_timer = $CountDown/CountDownTimer
 
-var target_path = preload("res://assets/objects/target.png")
+var target_path = preload("res://assets/cursors/target.png")
 var area_cursor = preload("res://assets/cursors/area_cursor.png")
 
 var isSingleTarget = true
@@ -74,10 +74,11 @@ func update_weight_button():
 		Globals.is_weight = false
 	
 func change_cursor():
+	
 	if isSingleTarget:
-		Input.set_custom_mouse_cursor(target_path)
+		Input.set_custom_mouse_cursor(target_path, Input.CURSOR_ARROW, Vector2(16,16))
 	else:
-		Input.set_custom_mouse_cursor(area_cursor)
+		Input.set_custom_mouse_cursor(area_cursor, Input.CURSOR_ARROW, Vector2(20,17))
 
 	
 ### PLAYERS ###
