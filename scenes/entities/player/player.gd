@@ -51,19 +51,16 @@ func animate():
 func process_powerup(powerup):
 	if powerup == "jump":
 		velocity.y = JUMP_VELOCITY
-		Globals.jump_amount -= 1
 		has_jumped.emit()
 		
 	elif powerup == "flip":
 		DIRECTION.x *= -1
 		$Sprite2D.flip_h = not $Sprite2D.flip_h
-		Globals.flip_amount -= 1
 		has_flip.emit()
 		
 	elif powerup == "weight":
 		speed_modifier = 0.5
 		gravity_modifier = 5.0
-		Globals.weight_amount -= 1
 		has_weight.emit()
 	else:
 		# error powerup desconhecido

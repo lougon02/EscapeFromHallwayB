@@ -98,8 +98,20 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ScrollUp") or Input.is_action_just_pressed("ScrollDown"):
 		isSingleTarget = !isSingleTarget
 		change_cursor()
-	
+		
 	if Input.is_action_just_pressed("Click"):
 		if not isSingleTarget:
 			powerup_area_placed.emit(selectedPowerup)
 			print("Emmited")
+			
+		if selectedPowerup == "jump":
+			Globals.jump_amount -= 1
+			update_jump_button()
+		elif selectedPowerup == "flip":
+			Globals.flip_amount -= 1
+			update_flip_button()
+		elif selectedPowerup == "weight":
+			Globals.weight_amount -= 1
+			update_weight_button()
+		else: # Unknown powerup
+			pass
