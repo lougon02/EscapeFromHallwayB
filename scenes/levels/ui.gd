@@ -21,61 +21,47 @@ signal powerup_area_placed(powerup)
 var stylebox = StyleBoxFlat.new()
 
 func _ready():
-	update_jump_button()
-	update_flip_button()
-	update_weight_button()
+
 	update_freshmen_escaped(Globals.freshmen_escaped)
 	stylebox.set_corner_radius_all(20)
 	countdown_timer.start()
+
+### COUNTDOWN ###
+
+func _process(_delta):
+	var time_left = countdown_timer.time_left
+	var minutes = floor(time_left/60)
+	var seconds = int(time_left) % 60
+	
+	$CountDown/CountDownLabel.text = str(minutes, " : ", str(seconds).pad_zeros(2))
 	
 func _on_jump_button_pressed():
 	selectedPowerup = "jump"
-	Globals.is_jump = true
-	Globals.is_flip = false
-	Globals.is_weight = false
-
 	$Jump/JumpContainer/JumpButton.add_theme_stylebox_override("focus", stylebox)
-	change_cursor()
 	
 func _on_flip_button_pressed():
 	selectedPowerup = "flip"
-	Globals.is_flip = true
-	Globals.is_jump = false
-	Globals.is_weight = false
-
 	$Flip/FlipContainer/FlipButton.add_theme_stylebox_override("focus", stylebox)
-	change_cursor()
 	
 func _on_weight_button_pressed():
 	selectedPowerup = "weight"
-	Globals.is_weight = true
-	Globals.is_flip = false
-	Globals.is_jump = false
-
 	$Weight/WeightContainer/WeightButton.add_theme_stylebox_override("focus", stylebox)
-	change_cursor()
-	
-func update_jump_button():
-	jump_label.text = str(Globals.jump_amount)
-	if Globals.jump_amount <= 0:
+
+
+func update_powerup_amounts(amounts : Dictionary):
+	jump_label.text = str(amounts["jump"])
+	flip_label.text = str(amounts["flip"])
+	weight_label.text = str(amounts["weight"])
+
+	if amounts["jump"] <= 0:
 		$Jump/JumpContainer/JumpButton.disabled = true
-		Globals.is_jump = false
-	
-func update_flip_button():
-	flip_label.text = str(Globals.flip_amount)
-	if Globals.flip_amount <= 0:
+	if amounts["flip"] <= 0:
 		$Flip/FlipContainer/FlipButton.disabled = true
-		Globals.is_flip = false
-	
-func update_weight_button():
-	weight_label.text = str(Globals.weight_amount)
-	if Globals.weight_amount <= 0:
+	if amounts["weight"] <= 0:
 		$Weight/WeightContainer/WeightButton.disabled = true
-		Globals.is_weight = false
-	
-func change_cursor():
-	
-	if isSingleTarget:
+
+func change_cursor(powerup_is_area):
+	if not powerup_is_area:
 		Input.set_custom_mouse_cursor(target_path, Input.CURSOR_ARROW, Vector2(16,16))
 	else:
 		Input.set_custom_mouse_cursor(area_cursor, Input.CURSOR_ARROW, Vector2(20,17))
@@ -86,32 +72,14 @@ func change_cursor():
 func update_freshmen_escaped(value):
 	$PlayersEscaped/Label.text = str(value) + "/" + str(Globals.num_freshmen)
 
-### COUNTDOWN ###
+### AUXILIAR FUNCTIONS
 
-func _process(_delta):
-	var time_left = countdown_timer.time_left
-	var minutes = floor(time_left/60)
-	var seconds = int(time_left) % 60
+func is_button_active(powerup):
 	
-	$CountDown/CountDownLabel.text = str(minutes, " : ", str(seconds).pad_zeros(2))
-
-	if Input.is_action_just_pressed("ScrollUp") or Input.is_action_just_pressed("ScrollDown"):
-		isSingleTarget = !isSingleTarget
-		change_cursor()
-		
-	if Input.is_action_just_pressed("Click"):
-		if not isSingleTarget:
-			powerup_area_placed.emit(selectedPowerup)
-			print("Emmited")
-			
-		if selectedPowerup == "jump":
-			Globals.jump_amount -= 1
-			update_jump_button()
-		elif selectedPowerup == "flip":
-			Globals.flip_amount -= 1
-			update_flip_button()
-		elif selectedPowerup == "weight":
-			Globals.weight_amount -= 1
-			update_weight_button()
-		else: # Unknown powerup
-			pass
+	if powerup == "jump":
+		return !$Weight/WeightContainer/WeightButton.disabled and Globals.jump_amount > 0
+	elif powerup == "flip":
+		return !$Flip/FlipContainer/FlipButton.disabled and Globals.flip_amount > 0
+	else:
+		return !$Weight/WeightContainer/WeightButton.disabled and Globals.weight_amount > 0
+	

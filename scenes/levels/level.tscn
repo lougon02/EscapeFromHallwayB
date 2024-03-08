@@ -124,9 +124,7 @@ texture = ExtResource("8_jrdrg")
 position = Vector2(576, 324)
 
 [connection signal="body_entered" from="FloorSwitchAreas/Area2D" to="." method="_on_entered_first_floor"]
-[connection signal="has_flip" from="Players/Player" to="." method="_on_player_has_flip"]
-[connection signal="has_jumped" from="Players/Player" to="." method="_on_player_has_jumped"]
-[connection signal="has_weight" from="Players/Player" to="." method="_on_player_has_weight"]
+[connection signal="used_powerup" from="Players/Player" to="." method="_on_player_used_powerup"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="powerup_area_placed" from="UI" to="." method="_on_ui_powerup_area_placed"]
 [connection signal="body_exited" from="ExitGate" to="." method="_on_exit_gate_body_exited"]
