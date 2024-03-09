@@ -1,6 +1,6 @@
 # FEUPlings- The escape from the corridor B: User Manual
 
-<img src="../assets/others/FEUPlings_title.png" alt="Feuplings" width="500"/>
+<img src="./assets/others/FEUPlings_title.png" alt="Feuplings" width="500"/>
 
 ## Developed by:
 
