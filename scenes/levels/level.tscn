@@ -120,7 +120,6 @@ texture = ExtResource("2_svv2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundFloor/Ground"]
 position = Vector2(0, -0.25)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wmoj3")
 
 [node name="Heater" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
