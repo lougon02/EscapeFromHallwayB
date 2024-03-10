@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://spv66o485723"
-path="res://.godot/imported/Flip.png-6eca253634e174a272d5ec0eca7f3251.ctex"
+uid="uid://c3jq741vq6132"
+path="res://.godot/imported/FEUPlings_title.png-b9a250defd2edec2241d751ed8fd3d4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/powers/Flip.png"
-dest_files=["res://.godot/imported/Flip.png-6eca253634e174a272d5ec0eca7f3251.ctex"]
+source_file="res://assets/others/FEUPlings_title.png"
+dest_files=["res://.godot/imported/FEUPlings_title.png-b9a250defd2edec2241d751ed8fd3d4d.ctex"]
 
 [params]
 

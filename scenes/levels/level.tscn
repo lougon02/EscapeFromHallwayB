@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://b1tuqjtmru4nc" path="res://scenes/objects/bench.tscn" id="6_7avko"]
 [ext_resource type="Texture2D" uid="uid://ckxpgnse73urr" path="res://assets/objects/exit_gate.png" id="8_jrdrg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2evgg"]
-size = Vector2(35.5, 8)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqh6t"]
-size = Vector2(2289, 12)
+size = Vector2(9791, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmoj3"]
-size = Vector2(1150, 69)
+size = Vector2(1150, 69.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2evgg"]
+size = Vector2(35.5, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilwoe"]
 size = Vector2(136, 223)
@@ -26,17 +26,12 @@ size = Vector2(136, 223)
 script = ExtResource("1_60x56")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(391.92, 291)
+texture_repeat = 2
+position = Vector2(1720, 291)
 scale = Vector2(5.82, 5.82)
 texture = ExtResource("2_bpwx3")
-
-[node name="FloorSwitchAreas" type="Node2D" parent="."]
-
-[node name="Area2D" type="Area2D" parent="FloorSwitchAreas"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitchAreas/Area2D"]
-position = Vector2(-379.25, 138)
-shape = SubResource("RectangleShape2D_2evgg")
+region_enabled = true
+region_rect = Rect2(-20.4411, 0, 1680.07, 100)
 
 [node name="PowerAreas" type="Node2D" parent="."]
 
@@ -47,7 +42,7 @@ position = Vector2(-82, 220)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FirstFloor/Ground"]
-position = Vector2(465.5, -4)
+position = Vector2(1808.5, -4.5)
 shape = SubResource("RectangleShape2D_vqh6t")
 one_way_collision = true
 
@@ -55,38 +50,123 @@ one_way_collision = true
 position = Vector2(-590, 160)
 collision_layer = 4
 
+[node name="Heater7" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3848, 167)
+collision_layer = 4
+
+[node name="Heater9" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3872, -53)
+collision_layer = 4
+
+[node name="Heater10" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3873, -135)
+collision_layer = 4
+
+[node name="Heater11" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3872, -226)
+collision_layer = 4
+
+[node name="Heater8" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3899, 58)
+rotation = -0.523598
+collision_layer = 4
+
+[node name="Heater4" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(295, 160)
+collision_layer = 4
+
+[node name="Heater5" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(515, 160)
+collision_layer = 4
+
+[node name="Heater6" parent="FirstFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(726, 160)
+collision_layer = 4
+
 [node name="Bench" parent="FirstFloor" instance=ExtResource("6_7avko")]
-position = Vector2(-103, 185)
+position = Vector2(63, 185)
 scale = Vector2(4.39793, 4.39793)
+collision_layer = 4
+
+[node name="Bench2" parent="FirstFloor" instance=ExtResource("6_7avko")]
+position = Vector2(-665, 92)
+rotation = -0.785397
+scale = Vector2(5.95356, 4.39793)
 collision_layer = 4
 
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Player" parent="Players" instance=ExtResource("1_2alya")]
-position = Vector2(408, 547)
+position = Vector2(401, 557)
 
 [node name="Handrail" type="Sprite2D" parent="."]
+texture_repeat = 2
 position = Vector2(391.78, 152)
 scale = Vector2(5.81929, 5.78)
 texture = ExtResource("3_ppaot")
+region_enabled = true
+region_rect = Rect2(-318.815, 0, 2249.8, 24)
 
 [node name="GroundFloor" type="Node2D" parent="."]
 
 [node name="Ground" type="StaticBody2D" parent="GroundFloor"]
-position = Vector2(0.0400391, 4)
+position = Vector2(574, 617)
+scale = Vector2(14.4453, 1)
 collision_layer = 2
 
 [node name="FloorImage" type="Sprite2D" parent="GroundFloor/Ground"]
-position = Vector2(573, 613)
-scale = Vector2(5.75, 0.35)
+scale = Vector2(5.73276, 0.35)
 texture = ExtResource("2_svv2q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundFloor/Ground"]
-position = Vector2(573, 612.5)
+position = Vector2(0, -0.25)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wmoj3")
 
 [node name="Heater" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
 position = Vector2(843, 503)
+
+[node name="Heater3" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(1462, 444)
+
+[node name="Heater7" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(1741, 530)
+
+[node name="Heater4" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(2370, 456)
+
+[node name="Heater8" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3853, 530)
+
+[node name="Heater9" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3894, 428)
+rotation = 1.0472
+
+[node name="Heater10" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3977, 314)
+rotation = 0.261799
+
+[node name="Heater11" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3988, 458)
+rotation = -0.523598
+
+[node name="Heater12" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(3908, 242)
+rotation = -0.523598
+
+[node name="Heater14" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(4019, 529)
+
+[node name="Heater13" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(4048, 391)
+
+[node name="Heater5" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(2383, 353)
+rotation = -0.261799
+
+[node name="Heater6" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
+position = Vector2(2388, 298)
+rotation = 1.0472
 
 [node name="Heater2" parent="GroundFloor" instance=ExtResource("5_s0mmm")]
 position = Vector2(-75, 500)
@@ -94,10 +174,61 @@ position = Vector2(-75, 500)
 [node name="Bench" parent="GroundFloor" instance=ExtResource("6_7avko")]
 position = Vector2(172, 542)
 
+[node name="Bench6" parent="GroundFloor" instance=ExtResource("6_7avko")]
+position = Vector2(1052, 468)
+rotation = -0.523598
+
 [node name="Bench2" parent="GroundFloor" instance=ExtResource("6_7avko")]
 position = Vector2(-258, 338)
 rotation = 0.785397
 scale = Vector2(6.25, 6.25)
+
+[node name="Bench3" parent="GroundFloor" instance=ExtResource("6_7avko")]
+position = Vector2(1092, 343)
+rotation = 0.523598
+scale = Vector2(9.30951, 5.50062)
+
+[node name="Bench4" parent="GroundFloor" instance=ExtResource("6_7avko")]
+position = Vector2(2575, 407)
+rotation = -0.523598
+scale = Vector2(11.2523, 5.68455)
+
+[node name="Bench5" parent="GroundFloor" instance=ExtResource("6_7avko")]
+position = Vector2(3190, 308)
+rotation = 0.261799
+scale = Vector2(11.2523, 5.68455)
+
+[node name="FloorSwitchAreas" type="Node2D" parent="."]
+position = Vector2(-1, -10)
+
+[node name="ToFirstFloor" type="Node2D" parent="FloorSwitchAreas"]
+
+[node name="Switch" type="Area2D" parent="FloorSwitchAreas/ToFirstFloor"]
+position = Vector2(-380, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitchAreas/ToFirstFloor/Switch"]
+shape = SubResource("RectangleShape2D_2evgg")
+
+[node name="Switch2" type="Area2D" parent="FloorSwitchAreas/ToFirstFloor"]
+position = Vector2(1795, 225)
+scale = Vector2(33.3956, 1.34546)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitchAreas/ToFirstFloor/Switch2"]
+shape = SubResource("RectangleShape2D_2evgg")
+
+[node name="ToGroundFloor" type="Node2D" parent="FloorSwitchAreas"]
+
+[node name="Switch" type="Area2D" parent="FloorSwitchAreas/ToGroundFloor"]
+position = Vector2(957, 206)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitchAreas/ToGroundFloor/Switch"]
+shape = SubResource("RectangleShape2D_2evgg")
+
+[node name="Switch2" type="Area2D" parent="FloorSwitchAreas/ToGroundFloor"]
+position = Vector2(3003, 216)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorSwitchAreas/ToGroundFloor/Switch2"]
+shape = SubResource("RectangleShape2D_2evgg")
 
 [node name="Spawner" type="Node2D" parent="."]
 
@@ -110,7 +241,7 @@ position = Vector2(400, 558)
 [node name="UI" parent="." instance=ExtResource("5_e8kyw")]
 
 [node name="ExitGate" type="Area2D" parent="."]
-position = Vector2(1080, 468)
+position = Vector2(2717, 457)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGate"]
 shape = SubResource("RectangleShape2D_ilwoe")
@@ -123,8 +254,11 @@ texture = ExtResource("8_jrdrg")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
 
-[connection signal="body_entered" from="FloorSwitchAreas/Area2D" to="." method="_on_entered_first_floor"]
 [connection signal="used_powerup" from="Players/Player" to="." method="_on_player_used_powerup"]
+[connection signal="body_entered" from="FloorSwitchAreas/ToFirstFloor/Switch" to="." method="_on_entered_first_floor"]
+[connection signal="body_entered" from="FloorSwitchAreas/ToFirstFloor/Switch2" to="." method="_on_entered_first_floor"]
+[connection signal="body_entered" from="FloorSwitchAreas/ToGroundFloor/Switch" to="." method="_on_entered_ground_floor"]
+[connection signal="body_entered" from="FloorSwitchAreas/ToGroundFloor/Switch2" to="." method="_on_entered_ground_floor"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="powerup_area_placed" from="UI" to="." method="_on_ui_powerup_area_placed"]
 [connection signal="body_exited" from="ExitGate" to="." method="_on_exit_gate_body_exited"]

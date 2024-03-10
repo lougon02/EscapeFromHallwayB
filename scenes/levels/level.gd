@@ -46,6 +46,10 @@ func _on_entered_first_floor(body: CharacterBody2D):
 	body.set_collision_mask_value(2,false)
 	body.set_collision_mask_value(3,true)
 	
+func _on_entered_ground_floor(body: CharacterBody2D):
+	body.set_collision_mask_value(3,false)
+	body.set_collision_mask_value(2,true)
+	
 func powerup_area_placed(powerup: String):
 	print("Powerup placed: ", powerup)
 	var powerup_area = preload("res://scenes/powers/area_effect.tscn").instantiate()
