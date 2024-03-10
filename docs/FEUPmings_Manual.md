@@ -9,7 +9,7 @@
 
 ## Story:
 
-FEUPLings is an addictive 2D strategy puzzle game in which the user is tasked with helping the MEIC freshmen escape from FEUP's long corridor B. You'll face various obstacles: the corridor's benches and heaters. However, the freshmen have various powers, as they can jump and change directions. Can you help them in time?
+FEUPlings is an addictive 2D strategy puzzle game in which the user is tasked with helping the MEIC freshmen escape from FEUP's long corridor B. You'll face various obstacles: the corridor's benches and heaters. However, the freshmen have various powers, as they can jump and change directions. Can you help them in time?
 
 ## Instructions:
 
