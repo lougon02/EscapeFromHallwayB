@@ -37,10 +37,7 @@ func _on_spawn_timer_timeout():
 		spawned_count += 1
 		# Create the signals connection
 		freshman_instance.connect("used_powerup", _on_player_used_powerup)
-	
-func _on_exit_gate_body_exited(_body):
-	Globals.freshmen_escaped += 1
-	$UI.update_freshmen_escaped(Globals.freshmen_escaped)
+
 	
 func _on_entered_first_floor(body: CharacterBody2D):
 	body.set_collision_mask_value(2,false)
@@ -76,3 +73,7 @@ func _on_player_used_powerup(freshman_instance: CharacterBody2D):
 		powerup_uses[powerup] -= 1
 		freshman_instance.process_powerup(powerup)
 		$UI.update_powerup_amounts(powerup_uses)
+
+func _on_exit_gate_body_exited(_body):
+	Globals.freshmen_escaped += 1
+	$UI.update_freshmen_escaped(Globals.freshmen_escaped)

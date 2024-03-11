@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfe7w1fhdpypf"]
+
+[ext_resource type="Texture2D" uid="uid://ctce4x5jl28ik" path="res://assets/objects/light/circle.png" id="1_4v1l7"]
+[ext_resource type="Texture2D" uid="uid://ckxpgnse73urr" path="res://assets/objects/exit_gate.png" id="2_sbq77"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2ne4"]
+size = Vector2(223.188, 225.453)
+
+[sub_resource type="Animation" id="Animation_3xl17"]
+resource_name = "blinking"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [16.0, 0.0, 16.0, 0.0, 16.0, 0.0, 16.0, 0.0, 16.0, 0.0, 16.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eskfg"]
+_data = {
+"blinking": SubResource("Animation_3xl17")
+}
+
+[node name="ExitGate" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p2ne4")
+
+[node name="Exit indicator" type="PointLight2D" parent="."]
+scale = Vector2(0.0930976, 0.0823274)
+color = Color(0, 0, 1, 1)
+energy = 8.0
+texture = ExtResource("1_4v1l7")
+texture_scale = 6.01
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Exit indicator")
+libraries = {
+"": SubResource("AnimationLibrary_eskfg")
+}
+autoplay = "blinking"
+
+[node name="ExitSign" type="Sprite2D" parent="."]
+position = Vector2(1, -160)
+scale = Vector2(0.0624479, 0.086378)
+texture = ExtResource("2_sbq77")
