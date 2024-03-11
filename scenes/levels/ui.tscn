@@ -142,7 +142,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 
-[connection signal="timeout" from="CountDown/CountDownTimer" to="." method="_on_count_down_timeout"]
+[connection signal="timeout" from="CountDown/CountDownTimer" to="." method="_on_count_down_timer_timeout"]
 [connection signal="pressed" from="Jump/JumpContainer/JumpButton" to="." method="_on_jump_button_pressed"]
 [connection signal="pressed" from="Flip/FlipContainer/FlipButton" to="." method="_on_flip_button_pressed"]
 [connection signal="pressed" from="Weight/WeightContainer/WeightButton" to="." method="_on_weight_button_pressed"]

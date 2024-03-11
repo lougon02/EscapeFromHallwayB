@@ -36,7 +36,7 @@ shape = SubResource("RectangleShape2D_p2ne4")
 [node name="Exit indicator" type="PointLight2D" parent="."]
 scale = Vector2(0.0930976, 0.0823274)
 color = Color(0, 0, 1, 1)
-energy = 8.0
+energy = 16.0
 texture = ExtResource("1_4v1l7")
 texture_scale = 6.01
 

@@ -82,4 +82,7 @@ func is_button_active(powerup):
 		return !$Flip/FlipContainer/FlipButton.disabled and Globals.flip_amount > 0
 	else:
 		return !$Weight/WeightContainer/WeightButton.disabled and Globals.weight_amount > 0
-	
+
+func _on_count_down_timer_timeout():
+	if Globals.freshmen_escaped == 0:
+		print("Defeat")
