@@ -25,7 +25,9 @@ func _process(_delta):
 		powerup_is_area = !powerup_is_area
 		$UI.change_cursor(powerup_is_area)
 	if Input.is_action_just_pressed("Click"):
-		if powerup_is_area:
+		var clicked_position = get_global_mouse_position()
+		print(clicked_position)
+		if powerup_is_area and clicked_position.y < 580:
 			powerup_area_placed($UI.selectedPowerup)
 	
 	if $Players.get_child_count() == 0:

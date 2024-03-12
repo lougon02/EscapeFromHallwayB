@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch8fdq5bc602k"]
+[gd_scene load_steps=6 format=3 uid="uid://ch8fdq5bc602k"]
 
 [ext_resource type="FontFile" uid="uid://ct1l2hjnalw7r" path="res://fonts/poco/Poco.ttf" id="1_o4q0y"]
+[ext_resource type="Script" path="res://menu/victory_menu.gd" id="1_pb6b7"]
 [ext_resource type="Theme" uid="uid://deqt7lppamo31" path="res://menu/button_theme.tres" id="2_f6gfb"]
 
 [sub_resource type="Animation" id="Animation_tgly5"]
@@ -61,6 +62,7 @@ _data = {
 }
 
 [node name="VictoryMenu" type="CanvasLayer"]
+script = ExtResource("1_pb6b7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -109,3 +111,5 @@ libraries = {
 "": SubResource("AnimationLibrary_n2qi6")
 }
 autoplay = "victory_message_transition"
+
+[connection signal="pressed" from="HomeButton" to="." method="_on_home_button_pressed"]
