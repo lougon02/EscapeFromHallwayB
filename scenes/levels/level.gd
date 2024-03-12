@@ -27,6 +27,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Click"):
 		if powerup_is_area:
 			powerup_area_placed($UI.selectedPowerup)
+	
+	if $Players.get_child_count() == 0:
+		get_tree().change_scene_to_file("res://menu/victory_menu.tscn")
 
 # Spawn of freshmen
 func _on_spawn_timer_timeout():
@@ -74,6 +77,7 @@ func _on_player_used_powerup(freshman_instance: CharacterBody2D):
 		freshman_instance.process_powerup(powerup)
 		$UI.update_powerup_amounts(powerup_uses)
 
-func _on_exit_gate_body_exited(_body):
+func _on_exit_gate_body_exited(body):
 	Globals.freshmen_escaped += 1
 	$UI.update_freshmen_escaped(Globals.freshmen_escaped)
+	body.queue_free()

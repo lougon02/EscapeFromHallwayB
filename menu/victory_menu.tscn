@@ -1,0 +1,111 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch8fdq5bc602k"]
+
+[ext_resource type="FontFile" uid="uid://ct1l2hjnalw7r" path="res://fonts/poco/Poco.ttf" id="1_o4q0y"]
+[ext_resource type="Theme" uid="uid://deqt7lppamo31" path="res://menu/button_theme.tres" id="2_f6gfb"]
+
+[sub_resource type="Animation" id="Animation_tgly5"]
+resource_name = "victory_message_transition"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.0980392, 0.0980392, 0.0980392, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Victory Message:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.54902, 0.176471, 0.0980392, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HomeButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HomeButton:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2qi6"]
+_data = {
+"victory_message_transition": SubResource("Animation_tgly5")
+}
+
+[node name="VictoryMenu" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+color = Color(0, 0, 0, 0)
+
+[node name="HomeButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = 94.0
+offset_right = 64.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_f6gfb")
+theme_override_fonts/font = ExtResource("1_o4q0y")
+theme_override_font_sizes/font_size = 40
+text = "HOME"
+
+[node name="Victory Message" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -74.0
+offset_right = 119.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.54902, 0.176471, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("1_o4q0y")
+theme_override_font_sizes/font_size = 70
+text = "VICTORY!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n2qi6")
+}
+autoplay = "victory_message_transition"
