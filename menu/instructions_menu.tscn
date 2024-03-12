@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://2g2qj5jbvhi"]
+
+[ext_resource type="Script" path="res://InstructionsLayer.gd" id="1_oxucx"]
+[ext_resource type="Texture2D" uid="uid://b1lp1cq3l5wpp" path="res://assets/level/background_main_menu.png" id="2_fppgp"]
+[ext_resource type="FontFile" uid="uid://ct1l2hjnalw7r" path="res://fonts/poco/Poco.ttf" id="3_jildd"]
+[ext_resource type="Theme" uid="uid://deqt7lppamo31" path="res://menu/button_theme.tres" id="4_ykvpr"]
+
+[node name="InstructionsMenu" type="CanvasLayer"]
+script = ExtResource("1_oxucx")
+
+[node name="BackgroundMenu" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(571, 176)
+scale = Vector2(9.45893, 9.45893)
+texture = ExtResource("2_fppgp")
+
+[node name="Instructions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InstructionTitle" type="Label" parent="Instructions"]
+layout_mode = 0
+offset_left = 405.0
+offset_right = 783.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.54902, 0.176471, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("3_jildd")
+theme_override_font_sizes/font_size = 70
+text = "INSTRUCTIONS"
+
+[node name="Instruction1" type="Label" parent="Instructions"]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 141.0
+offset_right = 1195.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(0.54902, 0.176471, 0.0980392, 1)
+theme_override_fonts/font = ExtResource("3_jildd")
+theme_override_font_sizes/font_size = 30
+text = "Help the freshmen leave the corridor B. Use the power-ups to help them leave.
+Scroll the middle button to change for single mode or area mode."
+
+[node name="BackButton" type="Button" parent="Instructions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.4
+anchor_top = 11.775
+anchor_right = 17.075
+anchor_bottom = 14.95
+theme = ExtResource("4_ykvpr")
+theme_override_fonts/font = ExtResource("3_jildd")
+theme_override_font_sizes/font_size = 70
+text = "OK"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Instructions/BackButton" to="." method="_on_back_button_pressed"]
