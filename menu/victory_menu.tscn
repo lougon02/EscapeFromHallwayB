@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0.0980392, 0.0980392, 0.0980392, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -26,14 +26,14 @@ tracks/1/path = NodePath("Victory Message:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(0.54902, 0.176471, 0.0980392, 1)]
+"values": [Color(1, 1, 1, 0), Color(0.54902, 1, 0.0980392, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("HomeButton:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -78,7 +78,7 @@ anchor_bottom = 0.5
 offset_left = -64.0
 offset_top = 94.0
 offset_right = 64.0
-offset_bottom = 150.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
