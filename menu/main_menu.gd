@@ -7,6 +7,3 @@ func _on_play_button_pressed() -> void:
 
 func _on_instructions_button_pressed():
 	get_tree().change_scene_to_file("res://menu/instructions_menu.tscn")
-
-func test():
-	print("test")
