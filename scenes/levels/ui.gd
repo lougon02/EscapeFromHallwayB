@@ -15,6 +15,7 @@ var selectedPowerup = null
 
 # Signals
 signal powerup_area_placed(powerup)
+signal out_of_time()
 
 #### POWER-UPS #### 
 
@@ -85,4 +86,4 @@ func is_button_active(powerup):
 
 func _on_count_down_timer_timeout():
 	if Globals.freshmen_escaped == 0:
-		print("Defeat")
+		out_of_time.emit()

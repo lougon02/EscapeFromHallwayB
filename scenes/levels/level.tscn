@@ -249,4 +249,5 @@ position = Vector2(576, 324)
 [connection signal="body_entered" from="FloorSwitchAreas/ToGroundFloor/Switch" to="." method="_on_entered_ground_floor"]
 [connection signal="body_entered" from="FloorSwitchAreas/ToGroundFloor/Switch2" to="." method="_on_entered_ground_floor"]
 [connection signal="timeout" from="Spawner/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="out_of_time" from="UI" to="." method="_on_ui_out_of_time"]
 [connection signal="powerup_area_placed" from="UI" to="." method="_on_ui_powerup_area_placed"]

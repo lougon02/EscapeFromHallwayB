@@ -4,7 +4,7 @@ extends Area2D
 
 func _ready():
 	$Icon.texture = load("res://assets/powers/" + str(powerup.to_lower()) + ".png")
-	var tween = get_tree().create_tween().set_loops()
+	var tween = create_tween().set_loops()
 	tween.tween_property($PortalEffect, "frame", 5, 1).from(0)
 
 

@@ -33,6 +33,7 @@ func _process(_delta):
 	if $Players.get_child_count() == 0:
 		get_tree().change_scene_to_file("res://menu/victory_menu.tscn")
 
+
 # Spawn of freshmen
 func _on_spawn_timer_timeout():
 	if spawned_count < spawn_count:
@@ -83,3 +84,7 @@ func _on_exit_gate_body_exited(body):
 	Globals.freshmen_escaped += 1
 	$UI.update_freshmen_escaped(Globals.freshmen_escaped)
 	body.queue_free()
+
+
+func _on_ui_out_of_time():
+	get_tree().change_scene_to_file("res://menu/defeat_menu.tscn")

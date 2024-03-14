@@ -35,7 +35,7 @@ func _physics_process(delta):
 
 func animate():
 	# Tween to change sprite frame from 1 to 8.
-	var tween = get_tree().create_tween().set_loops()
+	var tween = create_tween().set_loops()
 	tween.tween_property($Sprite2D, "frame", 7, 1).from(0)
 
 func process_powerup(powerup):
