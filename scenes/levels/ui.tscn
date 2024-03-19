@@ -28,7 +28,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 
 [node name="CountDownTimer" type="Timer" parent="CountDown"]
 process_callback = 0
-wait_time = 10.0
+wait_time = 180.0
 one_shot = true
 
 [node name="Jump" type="Control" parent="."]

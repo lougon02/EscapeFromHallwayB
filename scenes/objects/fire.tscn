@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb8u74xy5gsit"]
+
+[ext_resource type="Script" path="res://scenes/objects/fire.gd" id="1_gbhyb"]
+[ext_resource type="Texture2D" uid="uid://yfl4r8mt0mfj" path="res://assets/level/fire_fx_v1.0/png/orange/loops/burning_loop_1.png" id="2_7k4v1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvuix"]
+radius = 6.66667
+
+[node name="Fire" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 6
+script = ExtResource("1_gbhyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.666667, -9.66667)
+texture = ExtResource("2_7k4v1")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kvuix")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

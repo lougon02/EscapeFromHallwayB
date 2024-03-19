@@ -33,7 +33,7 @@ func _process(_delta):
 	var time_left = countdown_timer.time_left
 	var minutes = floor(time_left/60)
 	var seconds = int(time_left) % 60
-	
+	update_freshmen_escaped(Globals.freshmen_escaped)
 	$CountDown/CountDownLabel.text = str(minutes, " : ", str(seconds).pad_zeros(2))
 	
 func _on_jump_button_pressed():
