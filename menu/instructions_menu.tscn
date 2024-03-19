@@ -33,14 +33,19 @@ text = "INSTRUCTIONS"
 [node name="Instruction1" type="Label" parent="Instructions"]
 layout_mode = 1
 offset_left = 50.0
-offset_top = 141.0
-offset_right = 1195.0
-offset_bottom = 269.0
+offset_top = 117.0
+offset_right = 1137.0
+offset_bottom = 452.0
 theme_override_colors/font_color = Color(0.54902, 0.176471, 0.0980392, 1)
 theme_override_fonts/font = ExtResource("3_jildd")
 theme_override_font_sizes/font_size = 30
-text = "Help the freshmen leave the corridor B. Use the power-ups to help them leave.
-Scroll the middle button to change for single mode or area mode."
+text = "Help the freshmen escape FEUP's corridor B.
+
+You can use the power-ups available on the interface: you can make a freshman jump, change direction or reduce its speed. 
+The power-ups are limited, so you must use them wisely!
+
+CONTROLS: Click on power-up and scroll the mouse to change between single or target mode."
+autowrap_mode = 3
 
 [node name="BackButton" type="Button" parent="Instructions"]
 layout_mode = 1
