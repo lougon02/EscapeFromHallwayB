@@ -27,7 +27,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Click"):
 		var clicked_position = get_global_mouse_position()
 		print(clicked_position)
-		if powerup_is_area and clicked_position.y < 580:
+		if powerup_is_area and clicked_position.y < 580 and not ($UI.selectedPowerup == null or $UI.selectedPowerup == ""):
 			powerup_area_placed($UI.selectedPowerup)
 	
 	# WIN/DEFEAT CONDITIONS
@@ -58,6 +58,9 @@ func _on_entered_ground_floor(body: CharacterBody2D):
 	body.set_collision_mask_value(2,true)
 	
 func powerup_area_placed(powerup: String):
+	if powerup == null or powerup == "":
+		return
+
 	print("Powerup placed: ", powerup)
 	var powerup_area = preload("res://scenes/powers/area_effect.tscn").instantiate()
 	powerup_area.powerup = powerup
@@ -78,6 +81,9 @@ func has_powerup(powerup):
 
 func _on_player_used_powerup(freshman_instance: CharacterBody2D):
 	var powerup = $UI.selectedPowerup
+
+	if powerup == null or powerup == "":
+		return
 
 	if has_powerup(powerup):
 		powerup_uses[powerup] -= 1
